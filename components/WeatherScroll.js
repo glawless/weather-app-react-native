@@ -5,7 +5,13 @@ import FutureForecast from "./FutureForecast";
 
 const WeatherScroll = ({ weatherData }) => {
   return (
-    <ScrollView horizontal={true} style={styles.scrollView}>
+    <ScrollView
+      horizontal={true}
+      alignContent="center"
+      justifyContent="space-around"
+      alignItems="center"
+      style={styles.scrollView}
+    >
       <CurrentTempEl
         data={weatherData && weatherData.length > 0 ? weatherData[0] : {}}
       />
@@ -33,6 +39,9 @@ const CurrentTempEl = ({ data }) => {
           <Text style={styles.temp}>
             Day - {data.temp.day.toFixed()}&#176;F
           </Text>
+          <Text style={styles.temp}>
+            {data.weather ? data.weather[0].main : null}
+          </Text>
         </View>
       </View>
     );
@@ -42,10 +51,10 @@ const CurrentTempEl = ({ data }) => {
 };
 
 const styles = StyleSheet.create({
-  ScrollView: {
+  scrollView: {
     flex: 0.4,
     backgroundColor: "#18181bcc",
-    padding: 30,
+    padding: 20,
   },
   image: {
     width: 150,

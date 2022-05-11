@@ -25,7 +25,7 @@ const FutureForcastItem = ({ forecastItem }) => {
       "@2x.png",
   };
   return (
-    <View style={styles.furtureForecastItemContainer}>
+    <View style={styles.futureForecastItemContainer}>
       <Text style={styles.day}>
         {moment(forecastItem.dt * 1000).format("ddd")}
       </Text>
@@ -36,6 +36,9 @@ const FutureForcastItem = ({ forecastItem }) => {
       <Text style={styles.temp}>
         Day - {forecastItem.temp.day.toFixed()}&#176;F
       </Text>
+      <Text style={styles.temp}>
+        {forecastItem.weather ? forecastItem.weather[0].main : null}
+      </Text>
     </View>
   );
 };
@@ -45,13 +48,13 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
   },
-  furtureForecastItemContainer: {
+  futureForecastItemContainer: {
     flex: 1,
     justifyContent: "center",
     backgroundColor: "#00000033",
     borderRadius: 10,
     borderColor: "#eee",
-    borderWidth: 1,
+    borderWidth: 0.5,
     padding: 20,
     marginLeft: 10,
   },
@@ -70,6 +73,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "100",
     textAlign: "center",
+  },
+  otherContainer: {
+    paddingRight: 40,
   },
 });
 

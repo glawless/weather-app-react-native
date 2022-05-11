@@ -6,7 +6,7 @@ import DateTime from "./components/DateTime";
 import WeatherScroll from "./components/WeatherScroll";
 
 const API = "d8a7f1f6c92d6d7babca624939bc3945";
-const img = require("./assets/spokane.jpg");
+const img = require("./assets/sky.jpg");
 
 export default function App() {
   const [data, setData] = useState({});
@@ -41,11 +41,14 @@ export default function App() {
       <ImageBackground source={img} style={styles.image}>
         <DateTime
           current={data.current}
-          timezone={data.timezone}
+          location={data.location}
           lat={data.lat}
           lon={data.lon}
         />
-        <WeatherScroll weatherData={data.daily} />
+        <WeatherScroll
+          weatherData={data.daily}
+          style={styles.weatherContainer}
+        />
       </ImageBackground>
     </View>
   );
@@ -59,5 +62,9 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
+  },
+  weatherContainer: {
+    backgroundColor: "white",
+    alignItems: "center",
   },
 });

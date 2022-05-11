@@ -124,12 +124,12 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 45,
     color: "white",
-    fontWeight: "100",
+    fontWeight: "700",
   },
   subheading: {
     fontSize: 25,
     color: "#eee",
-    fontWeight: "300",
+    fontWeight: "400",
   },
   rightAlign: {
     textAlign: "right",
